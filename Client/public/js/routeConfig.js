@@ -8,19 +8,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controller: 'mainController'
   })
 
-  .state('app.user', {
-    url: '/user',
-    templateUrl: 'public/views/user.html',
-    controller: 'userController',
+  .state('app.game', {
+    url: '/game',
+    templateUrl: 'public/views/game.html',
+    controller: 'gameController',
     params: {
         obj: {}
     }
   })
-  .state('app.login', {
-    url: '/login',
-    templateUrl: 'public/views/login.html',
-    controller: 'loginController'
-  })
 
-  $urlRouterProvider.otherwise('/app/user');
+  $urlRouterProvider.otherwise('/app/game');
 });
