@@ -11,6 +11,8 @@
     "debug": "~2.6.0",
     "express": "~4.14.1",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.2"
+    "node-sockjs-client": "^1.0.7",
+    "serve-favicon": "~2.3.2",
+    "sockjs": "^0.3.18"
   }
 }
