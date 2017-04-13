@@ -1,0 +1,11 @@
+<div>
+    <h1>User</h1>
+    <p>
+        Vous êtes sur la page des utilisateurs<br>
+        Vous avez {{nbUser}} Utilisateurs.
+        <a ui-sref="app.login">connexion</a>
+    </p>
+    <p ng-if="email.length >0 ">
+        <span ng-bind="email">  </span>
+     </p>
+</div>
