@@ -1,3 +1,3 @@
-app.service('gameService', function($q, $http) {
+app.service('GameService', function ($q, $http) {
 
 });
