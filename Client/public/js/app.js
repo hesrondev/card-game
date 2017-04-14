@@ -1,2 +1,11 @@
-var app = angular.module('template', ['ui.router','ui.bootstrap']);
-var chat = angular.module('BasicChat', ['chat']);
+var app = angular.module('template', ['ui.router','ui.bootstrap', 'chat'])
+
+.constant('config', {
+    rltm: {
+        service: "pubnub",
+        config: {
+            "publishKey": "demo",
+            "subscribeKey": "demo"
+        }
+    }
+});
