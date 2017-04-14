@@ -1,7 +1,22 @@
 app.controller('GameController', function ($scope, GameService) {
 
-    var mypseudo = null;
-    var currentPlayer = null;
+    $scope.player = {
+        pseudo: null,
+        isConnected: false
+    };
+
+    $scope.sendPseudo = function (pseudo) {
+
+        $scope.player = {
+            isConnected: true,
+            pseudo: pseudo
+        };
+
+        console.log('CU: ' + JSON.stringify($scope.player));
+
+        GameService.emit('pseudo', pseudo);
+    };
+
 
     GameService.on('game', function (data) {
 
@@ -11,11 +26,6 @@ app.controller('GameController', function ($scope, GameService) {
 
         $scope.centerCards = game.centerCards;
     });
-
-    $scope.sendPseudo = function (pseudo) {
-        mypseudo = pseudo;
-        GameService.emit('pseudo', pseudo);
-    };
 
     // Reveal card
     $scope.returnCard = function (card) {
@@ -40,10 +50,18 @@ app.controller('GameController', function ($scope, GameService) {
     // Get current player
 
     function getCurrentPlayer(players) {
+
+        console.log('Finding player... ');
+
+        var result;
+
         players.forEach(function (e) {
-            if (e.pseudo == mypseudo)
-                return e;
+            if (e.name === $scope.player.pseudo) {
+                result = e;
+            }
         });
+
+        return result;
     }
 
     // Place players {
@@ -52,8 +70,17 @@ app.controller('GameController', function ($scope, GameService) {
 
         // Get current player
 
-        $scope.player2 = getCurrentPlayer(players);
-        drop(players, $scope.player2);
+        var cp = getCurrentPlayer(players);
+
+        console.log(cp);
+
+        if (cp) {
+            console.log(cp);
+            $scope.player2 = cp;
+            drop(players, $scope.player2);
+            console.log(players);
+        }
+
 
         $scope.player1 = players[0];
         drop(players, $scope.player1);
