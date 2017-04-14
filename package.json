@@ -12,7 +12,9 @@
     "express": "~4.14.1",
     "morgan": "~1.7.0",
     "node-sockjs-client": "^1.0.7",
+    "random-js": "^1.0.8",
     "serve-favicon": "~2.3.2",
-    "sockjs": "^0.3.18"
+    "sockjs": "^0.3.18",
+    "waitfor": "^0.1.3"
   }
 }

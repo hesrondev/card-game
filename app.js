@@ -1,8 +1,8 @@
 var express    = require('express');
 var path       = require('path');
 var bodyParser = require('body-parser');
-
 var index      = require('./routes/index');
+var game   = require('./utils/game');
 
 
 var port = 3000 ;
@@ -24,6 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/',index);
+
+game.init();
 
 
 app.listen(port,function(){
