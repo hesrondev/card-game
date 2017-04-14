@@ -39,7 +39,7 @@ io.sockets.on('connection', function (socket) {
         game.addPlayer(pseudo);
         socket.emit('game', game.game());
         socket.broadcast.emit('game', game.game());
- });
+    });
 
     socket.on('game', function (message) {
         console.log("il retourne une carte");

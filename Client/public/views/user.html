@@ -1,0 +1,23 @@
+<div>
+    <h1>User</h1>
+    <p>
+        Vous êtes sur la page des utilisateurs<br>
+        Vous avez {{nbUser}} Utilisateurs.
+        <a ui-sref="app.login">connexion</a>
+    </p>
+    <p ng-if="email.length >0 ">
+        <span ng-bind="email">  </span>
+     </p>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Jeu!</button>
+      </span>
+      <input type="text" class="form-control" placeholder="your pseudo">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
