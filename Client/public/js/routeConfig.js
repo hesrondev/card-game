@@ -1,21 +1,21 @@
-app.config(function($stateProvider, $urlRouterProvider) {
-  
-  $stateProvider
-  .state('app', {
-    url: '/app',
-    abstract: true,
-    template: '<ui-view></ui-view>',
-    controller: 'mainController'
-  })
+app.config(function ($stateProvider, $urlRouterProvider) {
 
-  .state('app.game', {
-    url: '/game',
-    templateUrl: 'public/views/game.html',
-    controller: 'gameController',
-    params: {
-        obj: {}
-    }
-  })
+    $stateProvider
+        .state('app', {
+            url: '/app',
+            abstract: true,
+            template: '<ui-view></ui-view>',
+            controller: 'mainController'
+        })
 
-  $urlRouterProvider.otherwise('/app/game');
+        .state('app.game', {
+            url: '/game',
+            templateUrl: 'public/views/game.html',
+            controller: 'gameController',
+            params: {
+                obj: {}
+            }
+        })
+
+    $urlRouterProvider.otherwise('/app/game');
 });
