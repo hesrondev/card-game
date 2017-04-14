@@ -37,6 +37,7 @@ io.sockets.on('connection', function (socket) {
         socket.pseudo = pseudo;
         console.log(pseudo + ' connecter');
         game.addPlayer(pseudo);
+        socket.emit('game', game.game());
         socket.broadcast.emit('game', game.game());
 
 
