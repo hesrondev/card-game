@@ -17,6 +17,11 @@ app.controller('GameController', function ($scope, GameService) {
 
     }
 
+    // Reveal card
+    $scope.returnCard = function (card) {
+        card.state = 1;
+    }
+
 
     // Get card img
 
@@ -24,8 +29,8 @@ app.controller('GameController', function ($scope, GameService) {
 
         var root = 'public/img/';
 
-        if (card.state) {
-            return root + card.img;
+        if (!card.state) {
+            return root + 'card-reverse.jpg';
         } else {
             return root + card.img;
         }
