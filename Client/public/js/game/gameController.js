@@ -1,15 +1,33 @@
+
 app.controller( 'gameController', [ 'Messages' , '$scope', 'gameService', function( Messages, $scope,gameService ) {
-    // Message Inbox
-    $scope.messages = [];
-    // Receive Messages
-    Messages.receive(function(message) {
-        $scope.messages.push(message);
-    });
-    // Send Messages
-    $scope.send = function() {
-        Messages.send({ 
-            data: $scope.textbox 
-        });
-    };
-    gameService.conexionSocket();
-}]);
+
+gameService.conexionSocket();
+    // Dummy players
+
+    var game = GameService.initGame();
+
+    $scope.player1 = game.players[0];
+    $scope.player2 = game.players[1];
+    $scope.player3 = game.players[2];
+    $scope.player4 = game.players[3];
+
+    $scope.centerCards = game.centerCards;
+
+
+    function update() {
+
+    }
+
+
+    // Get card img
+
+    $scope.getCardImg = function (card) {
+
+        var root = 'public/img/';
+
+        if (card.state) {
+            return root + card.img;
+        } else {
+            return root + card.img;
+        }
+    }

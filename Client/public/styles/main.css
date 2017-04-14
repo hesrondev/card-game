@@ -1,0 +1,128 @@
+body {
+    padding-top: 20px;
+}
+
+#game-room {
+    background: #754506;
+    border: none;
+    border-radius: 30%;
+    width: 100%;
+    height: 450px;
+}
+
+#game-board {
+    background: #377F51;
+    border: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 30%;
+}
+
+.card-h {
+    max-width: 47px;
+    max-height: 50px;
+}
+
+.card-v {
+    max-width: 50px;
+    max-height: 47px;
+}
+
+.player-cards-wrapper-h {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+}
+
+.player-cards-wrapper-v {
+    position: absolute;
+    width: 50px;
+    height: 200px;
+}
+
+.rotate-90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#player-1-cards {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+#player-2-cards {
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#player-3-cards {
+    margin: auto 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#player-4-cards {
+    margin: auto 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#center-cards {
+    height: 100px;
+    width: 250px;
+    margin: auto auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.player {
+    position: relative;
+}
+
+.player img {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+}
+
+.player p {
+    display: table-cell;
+    background-color: lightgrey;
+    border-radius: 16px;
+    min-height: 70px;
+    width: 100px;
+}
+
+.v-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    /* background: red; */
+}
+
+.side {
+    height: 450px;
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+
+#left-player {
+    right: 0;
+}
+
+.grey {
+    background: lightgrey;
+}

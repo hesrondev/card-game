@@ -1,11 +1,6 @@
-<div ng-app="BasicChat">
-    <div>
-        <div ng-repeat="message in messages">
-            <strong>{{message.user.name}}:</strong>
-            <span>{{message.data}}</span>
-        </div>
-        <form ng-submit="send()">
-            <input ng-model="textbox">
-        </form>
-    </div>
+<div ng-include="'public/views/game-room.html'">
+</div>
+
+
+<div ng-include="'public/views/chat.html'">
 </div>
