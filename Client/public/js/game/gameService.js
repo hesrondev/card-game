@@ -1,5 +1,5 @@
 app.factory('GameService', function ($rootScope) {
-    var socket = io.connect();
+    var socket = io.connect('http://10.75.2.255:3000');
     return {
         on: function (eventName, callback) {
 

@@ -4,9 +4,9 @@ app.controller('GameController', function ($scope, GameService) {
 
     GameService.on('game', function (data) {
 
-        console.log('Received');
+        var game = data;
 
-        var game = data.game;
+        console.log(game);
 
         $scope.player1 = game.players[0];
         $scope.player2 = game.players[1];
@@ -19,13 +19,6 @@ app.controller('GameController', function ($scope, GameService) {
     $scope.sendPseudo = function (pseudo) {
         GameService.emit('pseudo', pseudo);
     };
-
-
-
-
-    function update() {
-
-    }
 
     // Reveal card
     $scope.returnCard = function (card) {
