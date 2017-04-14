@@ -31,7 +31,6 @@ var port = 3000;
 
 game.init();
 
-console.log(game.game());
 io.sockets.on('connection', function (socket) {
 
     socket.on('pseudo', function (pseudo) {
@@ -39,6 +38,7 @@ io.sockets.on('connection', function (socket) {
         console.log(pseudo + ' connecter');
         game.addPlayer(pseudo);
         socket.broadcast.emit('game', game.game());
+
 
     });
 
