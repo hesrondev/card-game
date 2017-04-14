@@ -19,18 +19,34 @@ body {
     border-radius: 30%;
 }
 
+.card-h {
+    max-width: 47px;
+    max-height: 50px;
+}
+
+.card-v {
+    max-width: 50px;
+    max-height: 47px;
+}
+
 .player-cards-wrapper-h {
     position: absolute;
     width: 200px;
     height: 50px;
-    /* border: solid 1px red; */
 }
 
 .player-cards-wrapper-v {
     position: absolute;
     width: 50px;
     height: 200px;
-    /* border: solid 1px red; */
+}
+
+.rotate-90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 #player-1-cards {
