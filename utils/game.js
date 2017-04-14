@@ -7,23 +7,26 @@ var Random  = require('random-js'),
 
 
 module.exports = {
-  init      : init,
-  game      : game,
-  addPlayer : addPlayer
+  init       : init,
+  game       : game,
+  addPlayer  : addPlayer,
+  setGame    : setGame,
+  centerCard : centerCard
 };
 
 var game ;
 
 function init() {
   game = new Game([], [], 1);  
-  addPlayer("jean");
-  addPlayer("luc");
-  addPlayer("julie");
 }
 
 function game(){
   return game;
 }
+function setGame(games){
+  game = games;
+}
+
 
 function addPlayer(playerName){
 
@@ -41,6 +44,13 @@ function drawCard (card){
   return cardDraw;
 
 }
+
+function centerCard() {
+  var card = drawCard (cards);
+  game.centerCards.push(card);
+
+}
+
 
 function playerHaveCard( player, selectedCard ){
   var cardPlayer = player.cards;

@@ -38,17 +38,21 @@ io.sockets.on('connection', function (socket) {
         socket.pseudo = pseudo;
         console.log(pseudo + ' connecter');
         game.addPlayer(pseudo);
+        socket.emit('game', game.game());
         socket.broadcast.emit('game', game.game());
-
     });
 
-
-    socket.on('message', function (message) {
-        // On récupère le pseudo de celui qui a cliqué dans les variables de session
-        console.log(socket.pseudo + ' me parle ! Il me dit : ' + message);
+    socket.on('game', function (message) {
+        console.log("il retourne une carte");
+        game.setGame(message);
+        socket.broadcast.emit('game',message);
     });
 
-
+    socket.on('centerCard', function (message) {
+        console.log("il retourne une carte au centre ");
+        game.centerCard();
+        socket.broadcast.emit('game',game.game());
+    });
 
 });
 
