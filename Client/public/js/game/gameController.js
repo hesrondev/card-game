@@ -1,4 +1,4 @@
-app.controller( 'gameController', [ 'Messages', '$scope', function( Messages, $scope ) {
+app.controller( 'gameController', [ 'Messages' , '$scope', 'gameService', function( Messages, $scope,gameService ) {
     // Message Inbox
     $scope.messages = [];
     // Receive Messages
@@ -11,4 +11,5 @@ app.controller( 'gameController', [ 'Messages', '$scope', function( Messages, $s
             data: $scope.textbox 
         });
     };
+    gameService.conexionSocket();
 }]);

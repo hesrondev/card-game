@@ -15,7 +15,9 @@ var game ;
 function init() {
   game = new Game([], [], 1);  
   AddPlayer("jean");
-  console.log(game.players[0].cards);
+  AddPlayer("luc");
+  AddPlayer("julie");
+  AddPlayer("justine");
 }
 
 
