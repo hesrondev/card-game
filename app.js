@@ -26,25 +26,21 @@ app.use('/',index);
 
 
 var port = 3000 ;
-//app.listen(port2,function(){
-//    console.log('serveur starterd on port'+port2);
-//});
+
 game.init();
 
+console.log(game.game());
 io.sockets.on('connection', function (socket) {
-	socket.emit('message', 'Vous êtes bien connecté !');
-	socket.broadcast.emit('message', 'Un autre client vient de se connecter !');
 
-	socket.on('message', function (message) {
-		console.log('Un client me parle ! Il me dit : ' + message);
-	});	
-    
-    // Dès qu'on nous donne un pseudo, on le stocke en variable de session
-    socket.on('petit_nouveau', function(pseudo) {
+    socket.on('pseudo', function(pseudo) {
         socket.pseudo = pseudo;
+        console.log(pseudo+' connecter');
+        game.addPlayer(pseudo);
+        socket.broadcast.emit('game',game.game());
+
     });
 
-    // Dès qu'on reçoit un "message" (clic sur le bouton), on le note dans la console
+  
     socket.on('message', function (message) {
         // On récupère le pseudo de celui qui a cliqué dans les variables de session
         console.log(socket.pseudo + ' me parle ! Il me dit : ' + message);
