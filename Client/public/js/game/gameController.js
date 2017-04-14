@@ -1,17 +1,26 @@
+app.controller('GameController', function ($scope, GameService) {
 
-app.controller( 'gameController', [ 'Messages' , '$scope', 'gameService', function( Messages, $scope,gameService ) {
 
-gameService.conexionSocket();
-    // Dummy players
 
-    var game = GameService.initGame();
+    GameService.on('game', function (data) {
 
-    $scope.player1 = game.players[0];
-    $scope.player2 = game.players[1];
-    $scope.player3 = game.players[2];
-    $scope.player4 = game.players[3];
+        console.log('Received');
 
-    $scope.centerCards = game.centerCards;
+        var game = data.game;
+
+        $scope.player1 = game.players[0];
+        $scope.player2 = game.players[1];
+        $scope.player3 = game.players[2];
+        $scope.player4 = game.players[3];
+
+        $scope.centerCards = game.centerCards;
+    });
+
+    $scope.sendPseudo = function (pseudo) {
+        GameService.emit('pseudo', pseudo);
+    };
+
+
 
 
     function update() {
@@ -36,3 +45,4 @@ gameService.conexionSocket();
             return root + card.img;
         }
     }
+})
