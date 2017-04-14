@@ -1,4 +1,4 @@
-var app = angular.module('template', ['ui.router','ui.bootstrap', 'chat'])
+var app = angular.module('template', ['ui.router','ui.bootstrap', 'chat', 'luegg.directives'])
 
 .constant('config', {
     rltm: {
@@ -9,3 +9,4 @@ var app = angular.module('template', ['ui.router','ui.bootstrap', 'chat'])
         }
     }
 });
+

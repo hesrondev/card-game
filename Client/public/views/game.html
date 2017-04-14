@@ -1,11 +1,19 @@
-<div ng-app="BasicChat">
-    <div>
-        <div ng-repeat="message in messages">
-            <strong>{{message.user.name}}:</strong>
-            <span>{{message.data}}</span>
+<div class="chat">
+    <div class="chat-message" >
+        <div scroll-glue>
+            <div ng-repeat="message in messages">
+                <div class="comment">
+                    <p>
+                        <strong>{{message.user.name}}:</strong><br>
+                        <span>{{message.data}}</span>
+                    </p>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="chat-textbox">
         <form ng-submit="send()">
-            <input ng-model="textbox">
+            <input ng-model="textbox" class="chat-textbox">
         </form>
     </div>
 </div>
