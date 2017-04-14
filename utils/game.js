@@ -14,12 +14,14 @@ var game ;
 
 function init() {
   game = new Game([], [], 1);  
+  AddPlayer("jean");
+  console.log(game.players[0].cards);
 }
 
 
 function AddPlayer(playerName){
 
-  game.players.push( new  Player( game.players.length, playerName, 'https://api.adorable.io/avatars/136/salut.png',[ drawCard (cards), drawCard (cards) ], 1, 0 ) );
+  game.players.push( new  Player( game.players.length, playerName, 'https://api.adorable.io/avatars/136/salut.png',[ drawCard (cards), drawCard (cards), drawCard (cards), drawCard (cards) ], 1, 0 ) );
 
 }
 
