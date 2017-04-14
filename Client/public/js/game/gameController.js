@@ -1,6 +1,7 @@
-app.controller('GameController', function ($scope, GameService) {
 
+app.controller( 'gameController', [ 'Messages' , '$scope', 'gameService', function( Messages, $scope,gameService ) {
 
+gameService.conexionSocket();
     // Dummy players
 
     var game = GameService.initGame();
@@ -35,5 +36,3 @@ app.controller('GameController', function ($scope, GameService) {
             return root + card.img;
         }
     }
-
-});

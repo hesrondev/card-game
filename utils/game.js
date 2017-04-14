@@ -7,19 +7,25 @@ var Random  = require('random-js'),
 
 
 module.exports = {
-  init: init
+  init      : init,
+  game      : game,
+  addPlayer : addPlayer
 };
 
 var game ;
 
 function init() {
   game = new Game([], [], 1);  
-  AddPlayer("jean");
-  console.log(game.players[0].cards);
+  addPlayer("jean");
+  addPlayer("luc");
+  addPlayer("julie");
 }
 
+function game(){
+  return game;
+}
 
-function AddPlayer(playerName){
+function addPlayer(playerName){
 
   game.players.push( new  Player( game.players.length, playerName, 'https://api.adorable.io/avatars/136/salut.png',[ drawCard (cards), drawCard (cards), drawCard (cards), drawCard (cards) ], 1, 0 ) );
 
