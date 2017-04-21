@@ -1,7 +1,6 @@
 <div class="container-fluid" align="center">
 
-
-    <div class="row">
+    <div class="row" ng-hide="player.isConnected">
         <div class="col-md-offset-4 col-md-4">
 
             <input type="text" class="form-control" ng-model="pseudo">
@@ -12,7 +11,7 @@
 
     <div class="row">
 
-        <!-- player 1 -->
+        <!-- Avatar player 1 -->
 
         <div class="player">
             <h5>{{player1.name}}</h5>
@@ -28,15 +27,15 @@
 
         <div class="col-md-offset-2 col-md-1">
 
-            <!-- player 2 -->
+            <!-- Avatar player 3 -->
 
             <div class="side">
 
                 <div id="left-player" class="player pull-right">
-                    <h5>{{player2.name}}</h5>
-                    <img src="{{player2.avatar}}" alt="">
+                    <h5>{{player3.name}}</h5>
+                    <img src="{{player3.avatar}}" alt="">
                     <p>
-                        {{player2.glassCount}}
+                        {{player3.glassCount}}
                     </p>
                 </div>
 
@@ -47,7 +46,6 @@
         <div class="col-md-6">
 
             <div id="game-room" class="panel panel-primary panel panel-body">
-
 
                 <!--Game board -->
 
@@ -62,6 +60,8 @@
                         </div>
                     </div>
 
+                    <!-- Cards PLAYER 2 -->
+
                     <div id="player-2-cards" class="player-cards-wrapper-h">
 
                         <div class="row">
@@ -72,6 +72,8 @@
 
                     </div>
 
+                    <!-- Cards PLAYER 3 -->
+
                     <div id="player-3-cards" class="player-cards-wrapper-v">
 
                         <div class="row">
@@ -81,6 +83,9 @@
                         </div>
 
                     </div>
+
+
+                    <!-- Cards PLAYER 4 -->
 
                     <div id="player-4-cards" class="player-cards-wrapper-v">
 
@@ -110,15 +115,15 @@
 
         <div class="col-md-1">
 
-            <!-- player 3 -->
+            <!-- Avatar player 4 -->
 
             <div class="side">
 
                 <div id="left-player" class="player pull-right">
-                    <h5>{{player3.name}}</h5>
-                    <img src="{{player3.avatar}}" alt="">
+                    <h5>{{player4.name}}</h5>
+                    <img src="{{player4.avatar}}" alt="">
                     <p>
-                        {{player3.glassCount}}
+                        {{player4.glassCount}}
                     </p>
                 </div>
 
@@ -130,13 +135,13 @@
 
     <div class="row">
 
-        <!-- player 4 -->
+        <!-- Avatar player 2 -->
 
         <div class="player">
-            <h5>{{player4.name}}</h5>
-            <img src="{{player4.avatar}}" alt="">
+            <h5>{{player2.name}}</h5>
+            <img src="{{player2.avatar}}" alt="">
             <p>
-                {{player4.glassCount}}
+                {{player2.glassCount}}
             </p>
         </div>
 
