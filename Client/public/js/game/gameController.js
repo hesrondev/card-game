@@ -1,6 +1,7 @@
-app.controller('GameController', function ($scope, GameService) {
+app.controller('GameController', function ($scope, GameService, $rootScope) {
 
     var game = {};
+
 
     $scope.player = {
         pseudo: null,
@@ -13,7 +14,8 @@ app.controller('GameController', function ($scope, GameService) {
             isConnected: true,
             pseudo: pseudo
         };
-
+        
+        $rootScope.pseudo = pseudo; 
         console.log('CU: ' + JSON.stringify($scope.player));
 
         GameService.emit('pseudo', pseudo);
@@ -109,4 +111,4 @@ app.controller('GameController', function ($scope, GameService) {
         if (index > -1)
             array.splice(index, 1);
     }
-})
+});

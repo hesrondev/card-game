@@ -102,11 +102,23 @@
 
                     <div id="center-cards" class="player-cards-wrapper-h">
                         <div class="row">
-                            <div class="col-md-2" ng-repeat="card in centerCards">
-                                <img class="card-h" src="{{getCardImg(card)}}" alt="" ng-click="returnCardCenter(card)">
+                            <div ng-repeat="card in centerCards">
+                                <div  ng-if="$index%2 == 0 "> 
+                                    <div class="col-md-2" >
+                                        <img class="card-h" src="{{getCardImg(card)}}" alt="" ng-click="returnCardCenter(card)">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div ng-repeat="card in centerCards"> 
+                                <div  ng-if="$index%2 != 0 "> 
+                                    <div class="col-md-2" >
+                                        <img class="card-h" src="{{getCardImg(card)}}" alt="" ng-click="returnCardCenter(card)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
