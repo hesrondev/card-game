@@ -125,6 +125,6 @@ var cards = [
   new Card( 49, 0, 'T', 14, 'as_carreau.png'    ),
   new Card( 50, 0, 'H', 14, 'as_coeur.png'      ),
   new Card( 51, 0, 'P', 14, 'as_pique.png'      ),
-  new Card( 51, 0, 'C', 14, 'as_treffle.png'    )
+  new Card( 52, 0, 'C', 14, 'as_treffle.png'    )
 
 ];
