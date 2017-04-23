@@ -52,8 +52,18 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "express": "~4.14.1",
+    "http": "0.0.0",
     "morgan": "~1.7.0",
+<<<<<<< HEAD
+    "node-sockjs-client": "^1.0.7",
+    "random-js": "^1.0.8",
+    "serve-favicon": "~2.3.2",
+    "socket.io": "^1.7.3",
+    "sockjs": "^0.3.18",
+    "waitfor": "^0.1.3"
+=======
     "serve-favicon": "~2.3.2"
 >>>>>>> 8c73bfb5f80871fb0e08cac90dde77fae6b84327
+>>>>>>> master
   }
 }

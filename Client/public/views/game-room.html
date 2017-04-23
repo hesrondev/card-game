@@ -1,0 +1,170 @@
+<div class="container-fluid" align="center">
+
+    <div class="row" ng-hide="player.isConnected">
+        <div class="col-md-offset-4 col-md-4">
+
+            <input type="text" class="form-control" ng-model="pseudo">
+            <button class="btn btn-block btn-primary" ng-click="sendPseudo(pseudo)">Envoyer</button>
+        </div>
+    </div>
+    <div class="row" ng-hide="!player.isConnected">
+        <div class="col-md-offset-4 col-md-4">
+            <button class="btn btn-block btn-primary" ng-click="replay()">rejouer</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <!-- Avatar player 1 -->
+
+        <div class="player">
+            <h5>{{player1.name}}</h5>
+            <img src="{{player1.avatar}}" alt="">
+            <p>
+                {{player1.glassCount}}
+            </p>
+        </div>
+        <br>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-offset-2 col-md-1">
+
+            <!-- Avatar player 3 -->
+
+            <div class="side">
+
+                <div id="left-player" class="player pull-right">
+                    <h5>{{player3.name}}</h5>
+                    <img src="{{player3.avatar}}" alt="">
+                    <p>
+                        {{player3.glassCount}}
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div id="game-room" class="panel panel-primary panel panel-body">
+
+                <!--Game board -->
+
+                <div id="game-board" class="panel panel-default panel panel-body">
+
+                    <!-- Cards PLAYER 1 -->
+                    <div id="player-1-cards" class="player-cards-wrapper-h">
+                        <div class="row">
+                            <div class="col-md-3" ng-repeat="card in player1.cards">
+                                <img class="card-h" src="{{getCardImg(card)}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cards PLAYER 2 -->
+
+                    <div id="player-2-cards" class="player-cards-wrapper-h">
+
+                        <div class="row">
+                            <div class="col-md-3" ng-repeat="card in player2.cards">
+                                <img class="card-h" src="{{getCardImg(card)}}" alt="" ng-click="returnCard(card)">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Cards PLAYER 3 -->
+
+                    <div id="player-3-cards" class="player-cards-wrapper-v">
+
+                        <div class="row">
+                            <div class="col-md-12" ng-repeat="card in player3.cards">
+                                <img class="card-h rotate-90" src="{{getCardImg(card)}}" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Cards PLAYER 4 -->
+
+                    <div id="player-4-cards" class="player-cards-wrapper-v">
+
+                        <div class="row">
+                            <div class="col-md-12" ng-repeat="card in player4.cards">
+                                <img class="card-h rotate-90" src="{{getCardImg(card)}}" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Center cards -->
+
+                    <div id="center-cards" class="player-cards-wrapper-h">
+                        <div class="row">
+                            <div ng-repeat="card in centerCards">
+                                <div  ng-if="$index%2 == 0 "> 
+                                    <div class="col-md-2" >
+                                        <img class="card-h" src="{{getCardImg(card)}}" alt="" ng-click="returnCardCenter(card)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div ng-repeat="card in centerCards"> 
+                                <div  ng-if="$index%2 != 0 "> 
+                                    <div class="col-md-2" >
+                                        <img class="card-h" src="{{getCardImg(card)}}" alt="" ng-click="returnCardCenter(card)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1">
+
+            <!-- Avatar player 4 -->
+
+            <div class="side">
+
+                <div id="left-player" class="player pull-right">
+                    <h5>{{player4.name}}</h5>
+                    <img src="{{player4.avatar}}" alt="">
+                    <p>
+                        {{player4.glassCount}}
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <!-- Avatar player 2 -->
+
+        <div class="player">
+            <h5>{{player2.name}}</h5>
+            <img src="{{player2.avatar}}" alt="">
+            <p>
+                {{player2.glassCount}}
+            </p>
+        </div>
+
+    </div>
+
+
+    <br>
+
+</div>
