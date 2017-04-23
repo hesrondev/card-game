@@ -7,11 +7,12 @@ var Random  = require('random-js'),
 
 
 module.exports = {
-  init       : init,
-  game       : game,
-  addPlayer  : addPlayer,
-  setGame    : setGame,
-  centerCard : centerCard
+  init                    : init,
+  game                    : game,
+  addPlayer               : addPlayer,
+  setGame                 : setGame,
+  centerCard              : centerCard,
+  playerHaveReturnAllCard : playerHaveReturnAllCard
 };
 
 var game ;
@@ -51,6 +52,16 @@ function centerCard() {
 
 }
 
+
+function playerHaveReturnAllCard(){
+  var needreturnCard = true;
+  game.players.forEach(function(player){
+    player.cards.forEach(function(card){
+      if(card.state == 0) needreturnCard = false;
+    });
+  });
+  return needreturnCard;
+}
 
 function playerHaveCard( player, selectedCard ){
   var cardPlayer = player.cards;

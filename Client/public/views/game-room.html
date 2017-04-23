@@ -103,7 +103,7 @@
                     <div id="center-cards" class="player-cards-wrapper-h">
                         <div class="row">
                             <div class="col-md-2" ng-repeat="card in centerCards">
-                                <img class="card-h" src="{{getCardImg(card)}}" alt="">
+                                <img class="card-h" src="{{getCardImg(card)}}" alt="" ng-click="returnCardCenter(card)">
                             </div>
                         </div>
 

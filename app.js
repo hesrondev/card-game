@@ -44,12 +44,16 @@ io.sockets.on('connection', function (socket) {
     socket.on('game', function (message) {
         console.log("il retourne une carte");
         game.setGame(message);
-        socket.broadcast.emit('game',message);
+        if(game.playerHaveReturnAllCard()) {game.centerCard(); }
+        socket.emit('game', game.game());
+        socket.broadcast.emit('game',game.game());
     });
 
     socket.on('centerCard', function (message) {
         console.log("il retourne une carte au centre ");
-        game.centerCard();
+        game.setGame(message);
+        if(game.game().centerCards.length < 12 )  game.centerCard();
+        socket.emit('game', game.game());
         socket.broadcast.emit('game',game.game());
     });
 

@@ -1,5 +1,7 @@
 app.controller('GameController', function ($scope, GameService) {
 
+    var game = {};
+
     $scope.player = {
         pseudo: null,
         isConnected: false
@@ -20,7 +22,7 @@ app.controller('GameController', function ($scope, GameService) {
 
     GameService.on('game', function (data) {
 
-        var game = data;
+        game = data;
 
         placePlayers(data.players);
 
@@ -30,6 +32,20 @@ app.controller('GameController', function ($scope, GameService) {
     // Reveal card
     $scope.returnCard = function (card) {
         card.state = 1;
+        var cp = getCurrentPlayer(game.players);
+        ChangeStateCard(card,cp.cards);
+         GameService.emit('game', game);
+    }
+    $scope.returnCardCenter = function(card){ 
+        ChangeStateCard(card,game.centerCards);
+        GameService.emit('centerCard', game);
+    }
+
+    function ChangeStateCard (cardselected,cards){  
+        cards.forEach(function(card){
+            if(card.id == cardselected.id )  card.state = 1;
+        });
+
     }
 
 
@@ -50,9 +66,7 @@ app.controller('GameController', function ($scope, GameService) {
     // Get current player
 
     function getCurrentPlayer(players) {
-
-        console.log('Finding player... ');
-
+    
         var result;
 
         players.forEach(function (e) {
@@ -66,19 +80,16 @@ app.controller('GameController', function ($scope, GameService) {
 
     // Place players {
 
-    function placePlayers(players) {
-
+    function placePlayers(playerArray) {
+   
+         var players = JSON.parse(JSON.stringify(playerArray));
         // Get current player
 
         var cp = getCurrentPlayer(players);
 
-        console.log(cp);
-
         if (cp) {
-            console.log(cp);
             $scope.player2 = cp;
             drop(players, $scope.player2);
-            console.log(players);
         }
 
 
