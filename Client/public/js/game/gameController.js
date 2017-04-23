@@ -7,6 +7,10 @@ app.controller('GameController', function ($scope, GameService, $rootScope) {
         pseudo: null,
         isConnected: false
     };
+    $scope.replay = function(){
+
+        GameService.emit('replay', 'replay'); 
+    }
 
     $scope.sendPseudo = function (pseudo) {
 
@@ -22,12 +26,13 @@ app.controller('GameController', function ($scope, GameService, $rootScope) {
     };
 
 
+    GameService.on('replay', function (data) {
+      $scope.sendPseudo( $scope.player.pseudo);
+    });
+
     GameService.on('game', function (data) {
-
         game = data;
-
         placePlayers(data.players);
-
         $scope.centerCards = game.centerCards;
     });
 

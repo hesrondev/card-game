@@ -40,6 +40,13 @@ io.sockets.on('connection', function (socket) {
         socket.emit('game', game.game());
         socket.broadcast.emit('game', game.game());
     });
+    socket.on('replay', function (message) {
+        console.log("replay");
+        game.init();
+        socket.emit('replay', game.game());
+        socket.broadcast.emit('replay',game.game());
+    });
+
 
     socket.on('game', function (message) {
         console.log("il retourne une carte");

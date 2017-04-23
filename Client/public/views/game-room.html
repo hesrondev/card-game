@@ -7,6 +7,11 @@
             <button class="btn btn-block btn-primary" ng-click="sendPseudo(pseudo)">Envoyer</button>
         </div>
     </div>
+    <div class="row" ng-hide="!player.isConnected">
+        <div class="col-md-offset-4 col-md-4">
+            <button class="btn btn-block btn-primary" ng-click="replay()">rejouer</button>
+        </div>
+    </div>
 
 
     <div class="row">
